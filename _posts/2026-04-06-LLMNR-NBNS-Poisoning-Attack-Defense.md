@@ -2,7 +2,7 @@
 layout: post
 title: LLMNR & NBT-NS Poisoning - Un Guide Pratique
 date: 2026-04-06
-image: /assets/img/posts/llmnr-nbtns-poisoning.png
+image: /assets/img/posts/responder.png
 categories:
   - Active Directory
 tags:
