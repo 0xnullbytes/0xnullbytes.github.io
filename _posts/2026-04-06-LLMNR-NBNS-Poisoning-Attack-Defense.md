@@ -11,15 +11,16 @@ tags:
   - windows
   - french
 ---
-# Introduction 
-
-**LLMNR/NBT-NS** poisoning est un type d'attaque que l'on retrouve très souvent dans un envrionnement Active Directory. Il exploite l'hiérarchie de résolution de nom afin de voler les informations d'authentification d'un compte du domaine. 
+**LLMNR/NBT-NS poisoning**  est un type d'attaque que l'on retrouve très souvent dans un envrionnement Active Directory. Il exploite l'hiérarchie de résolution de nom afin de voler les informations d'authentification d'un compte du domaine. 
 
 Cette information se présente sous forme de **Hash NTLMv2 ou NTLMv1** pouvant être brute-forcé en local à l'aide d'outils tels que **Hashcat** ou **John The Ripper** ou relayé vers d'autres services ou protocoles.
 
 ## Hiérarchie de résolution de nom
 
-Au sein d'un **AD**, le **DNS** (Domain Name System) joue un rôle crucial. Il permet aux clients qui s'authentifient de localiser facilement les contrôleurs de domaines ainsi que les différents serveurs grâce à leur noms de domaine.
+Au sein d'un **AD**, le **DNS** (Domain Name System) joue un rôle crucial. Parmi ces rôles, on peut citer:
+- **Résolution de noms** : transforme les noms de machines en adresses IP.
+- **Localisation des services AD** : via les enregistrements SRV pour trouver les contrôleurs de domaine, LDAP, Kerberos, etc.
+- ...
 
 Si le **DNS** ne parvient pas à résoudre un nom d'hôte (par exemple en cas de faute de frappe ou de nom inexistant), alors le protocole **LLMNR (Link Local Mulitcast Name Resolution)** prend le relais. 
 
