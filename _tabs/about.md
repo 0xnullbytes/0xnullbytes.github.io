@@ -15,7 +15,7 @@ order: 4
 
 Cybersecurity student based in **Dakar, Senegal**, on a deliberate path toward offensive security. I operate under the philosophy of **Ikigai** — doing work that sits at the intersection of passion, purpose, and craft — and **Kaizen** — improving by 1% every single day, consistently.
 
-![Ikigai](../assets/img/posts/ikigai.jpeg)
+![Ikigai](/assets/img/posts/ikigai.jpeg)
 
 This blog is both a learning journal and a knowledge base. Every writeup, every technique breakdown, every note published here is a step in the process.
 
