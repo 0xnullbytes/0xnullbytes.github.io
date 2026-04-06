@@ -6,6 +6,7 @@ order: 4
 
 # Mouhamadou Lamine Ly
 
+
 > *"Find what you love, what the world needs, what you're good at, and what sustains you — then pursue it relentlessly, one day at a time."*
 
 ---
@@ -13,6 +14,8 @@ order: 4
 ## whoami
 
 Cybersecurity student based in **Dakar, Senegal**, on a deliberate path toward offensive security. I operate under the philosophy of **Ikigai** — doing work that sits at the intersection of passion, purpose, and craft — and **Kaizen** — improving by 1% every single day, consistently.
+
+![[ikigai.jpeg]]
 
 This blog is both a learning journal and a knowledge base. Every writeup, every technique breakdown, every note published here is a step in the process.
 
@@ -28,11 +31,11 @@ This blog is both a learning journal and a knowledge base. Every writeup, every 
 
 ## ./certifications
 
-| Badge | Certification | Issuer |
-|---|---|---|
-| 🛡️ | CNSP — Certified Network Security Practitioner | SecOps Group |
-| 🔐 | CSCRB — Certified Secure Coding: Review Basics | SecOps Group |
-| 🔍 | CPPS — Certified Purple Team Professional | SecOps Group |
+| Badge | Certification                                   | Issuer           |
+| ----- | ----------------------------------------------- | ---------------- |
+| 🛡️   | CNSP — Certified Network Security Practitioner  | SecOps Group     |
+| 🔐    | CSCRB — Certified Secure Code Review Beginners  | Red Team Leaders |
+| 🔍    | CPPS — Certified Phishing Prevention Specialist | Hack & Fix       |
 
 ---
 
