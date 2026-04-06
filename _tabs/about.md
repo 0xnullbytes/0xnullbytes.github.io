@@ -4,14 +4,14 @@ icon: fas fa-user-secret
 order: 4
 ---
 
-# Mouhamadou Lamine Ly
+# 0xNullBytes - Mouhamadou Lamine Ly
 
 
 > *"Find what you love, what the world needs, what you're good at, and what sustains you — then pursue it relentlessly, one day at a time."*
 
 ---
 
-## whoami
+## ./whoami
 
 Cybersecurity student based in **Dakar, Senegal**, on a deliberate path toward offensive security. I operate under the philosophy of **Ikigai** — doing work that sits at the intersection of passion, purpose, and craft — and **Kaizen** — improving by 1% every single day, consistently.
 
