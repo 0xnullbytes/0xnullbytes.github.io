@@ -1,19 +1,14 @@
 ---
 layout: post
-title: LLMNR & NBT-NS Poisoning Explained - A Practical Attack Guide 
+title: LLMNR & NBT-NS Poisoning - Un Guide Pratique 
 date: 2026-04-06
+image: /assets/img/posts/llmnr-nbtns-poisoning.png 
 categories:
     - Active Directory
-    - MITM
-    - Attack
-    - Defense
 tags:
-    - llmnr
-    - nbt-ns
-    - responder 
+    - mitm
+    - spoofing
     - windows 
-image:
-    path: /assets/img/posts/llmnr-nbtns-poisoning.png
 ---
 # Introduction 
 
