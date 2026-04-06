@@ -12,10 +12,10 @@ tags:
     - nbt-ns
     - responder 
     - windows 
+image:
+    path: /assets/img/posts/llmnr-nbtns-poisoning.png
 ---
 # Introduction 
-
-![LLMNR/NBT-NS Poisoning](/assets/img/posts/llmnr-nbtns-poisoning.png)
 
 **LLMNR/NBT-NS** poisoning est un type d'attaque que l'on retrouve très souvent dans un envrionnement Active Directory. Il exploite l'hiérarchie de résolution de nom afin de voler les informations d'authentification d'un compte du domaine. 
 
