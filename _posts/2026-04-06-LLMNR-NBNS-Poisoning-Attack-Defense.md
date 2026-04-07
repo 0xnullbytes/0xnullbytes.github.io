@@ -11,28 +11,44 @@ tags:
   - windows
   - french
 ---
-**LLMNR/NBT-NS poisoning**  est un type d'attaque que l'on retrouve très souvent dans un envrionnement Active Directory. Il exploite l'hiérarchie de résolution de nom afin de voler les informations d'authentification d'un compte du domaine. 
+**LLMNR/NBT-NS poisoning**  est un type d'attaque que l'on retrouve très souvent dans un environnement Active Directory. Il exploite l'hiérarchie de résolution de nom afin de voler les informations d'authentification d'un compte de domaine. 
 
-Cette information se présente sous forme de **Hash NTLMv2 ou NTLMv1** pouvant être brute-forcé en local à l'aide d'outils tels que **Hashcat** ou **John The Ripper** ou relayé vers d'autres services ou protocoles.
+Ces informations se présentent sous forme de **`hash NTLMv2`** ou **`NTLMv1`**. 
+Ce type de **`hash`** peut être soumis à une attaque par brute-force en local à l'aide d'outils tels que **`Hashcat`** ou **`John The Ripper`** afin de retrouver le mot de passe en clair.
+Ce **`hash`** peut également être relayé vers d'autres services ou protocoles pour s'authentifier sans pour autant connaitre le mot de passe.
 
 ## Hiérarchie de résolution de nom
 
-Au sein d'un **AD**, le **DNS** (Domain Name System) joue un rôle crucial. Parmi ces rôles, on peut citer:
-- **Résolution de noms** : transforme les noms de machines en adresses IP.
-- **Localisation des services AD** : via les enregistrements SRV pour trouver les contrôleurs de domaine, LDAP, Kerberos, etc.
-- ...
+Au sein d'un **Active Directory**, le **DNS** (Domain Name System) joue un rôle crucial. 
+Il permet, entre autres:
 
-Si le **DNS** ne parvient pas à résoudre un nom d'hôte (par exemple en cas de faute de frappe ou de nom inexistant), alors le protocole **LLMNR (Link Local Mulitcast Name Resolution)** prend le relais. 
+- **la résolution de noms** : transforme les noms de machines en adresses IP.
+- **Localisation des services AD** : via les enregistrements **`SRV`** pour trouver les contrôleurs de domaine, `LDAP`, `Kerberos`, etc.
 
-Et si ce dernier échoue, un autre protocole plus ancien, **NBT-NS (NetBIOS Name Service)** essaie à son tour de résoudre le nom d'hôte.
+Lorsqu’un nom d’hôte doit être résolu, Windows tente d’abord une résolution via DNS.  
+Si celle-ci échoue, le système utilise ensuite **`LLMNR`**, puis **`NetBIOS Name Service (NBT-NS)`**. 
+
+`LLMNR` (défini par la RFC 4795) et `NBT-NS` (protocole Microsoft) sont des mécanismes de résolution de noms opérant sur le réseau local via multicast et broadcast. Contrairement au DNS, ils ne nécessitent aucune infrastructure centralisée. N'importe quel hôte du segment réseau peut y répondre.
+
+>[!Note]
+Avant d’interroger le DNS, le système vérifie également le cache local et le fichier hosts.
+
+Ce qui nous donne le schéma suivant:
 
 ```
-DNS → LLMNR → NetBIOS Name Service (NBT-NS)
+Cache local → fichier hosts → DNS → LLMNR → NBT-NS
 ```
 
-## Présentation de LLMNR (Link Local Multicast Name Resolution)
+## LLMNR (Link Local Multicast Name Resolution)
 
-## Présentation de NBT-NS (NetBIOS Name Service)
+Défini par la [RFC 4795](https://datatracker.ietf.org/doc/html/rfc4795#section-2), **`LLMNR (Link Local Multicast Name Resolution)`** permet la résolution de nom d'hôtes sur un réseau local en cas d'échec du DNS. Il utilise par défaut le port `UDP 5355` et opère sous le principe de `Sender / Responder`. 
+Le `sender` étant celui qui envoie la requête et le `responder` celui qui répond à à cette requête. 
+Les requêtes sont envoyées aux adresses multicasts :
+- `IPv4 224.0.0.252`
+- `IPv6 FF02::1:3` 
+Tout hôte sur le même segment réseau peut répondre aux requêtes `LLMNR` (via unicast), ce qui le rend vulnérable aux attaque de type `poisoning`.
+## NBT-NS (NetBIOS Name Service)
+
 
 ## Fonctionnement de l’attaque
 
