@@ -41,19 +41,32 @@ Cache local → fichier hosts → DNS → LLMNR → NBT-NS
 ## LLMNR (Link Local Multicast Name Resolution)
 
 Défini par la [RFC 4795](https://datatracker.ietf.org/doc/html/rfc4795#section-2), **`LLMNR (Link Local Multicast Name Resolution)`** permet la résolution de nom d'hôtes sur un réseau local en cas d'échec du DNS. Il utilise par défaut le port `UDP 5355` et opère sous le principe de `Sender / Responder`. 
-Le `sender` étant celui qui envoie la requête et le `responder` celui qui répond à à cette requête. 
+Le `Sender` étant celui qui envoie la requête et le `Responder` celui qui répond à à cette requête. 
 Les requêtes sont envoyées aux adresses multicasts :
 - `IPv4 224.0.0.252`
 - `IPv6 FF02::1:3` 
 
-Tout hôte sur le même segment réseau peut répondre aux requêtes `LLMNR` (via unicast), ce qui le rend vulnérable aux attaque de type `poisoning`.
+Tout hôte sur le même segment réseau peut répondre aux requêtes `LLMNR` (via unicast), ce qui le rend vulnérable aux attaques de type `poisoning`.
 
 ## NBT-NS (NetBIOS Name Service)
 
-
+**`NTB-NS (NetBIOS Name Service)`** permet de résoudre les **`nom NetBIOS`** (15 caractères max.) en adresses IP. Il utilise le port **`UDP 137`** et envoie des requêtes broadcast sur le segment réseau. 
+C'est précisément ce mécanisme qui constitue la faille. N'importe quelle machine peut y répondre sans aucune forme d'authentification. 
 ## Fonctionnement de l’attaque
 
+- Un utilisateur tente d'accéder à un partage sur le serveur de fichiers.
+- Il saisit `\\file.mondomaine.local\` au lieu de `\\files.mondomaine.local\`.
+- Le DNS tente de résoudre le nom `file.mondomaine.local` — sans succès.
+- `LLMNR` puis `NBT-NS` prennent le relais et diffusent la requête sur le réseau local.
+- L'attaquant, à l'écoute sur le réseau avec **Responder**, intercepte la requête.
+- Il répond en se faisant passer pour l'hôte recherché.
+- La machine victime lui envoie automatiquement ses informations d'authentification sous forme de hash `NTLMv1/v2`.
+- L'attaquant peut alors **craquer le hash** hors ligne ou le **relayer** vers un autre service.
+
+![](/assets/img/posts/scenario-llmnr-poisoning.svg)
 ## Capture des hashes NTLM
+
+
 
 ## Exploitation des hashes
 
