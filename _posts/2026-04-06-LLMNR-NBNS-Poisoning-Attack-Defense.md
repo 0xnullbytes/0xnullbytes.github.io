@@ -30,8 +30,7 @@ Si celle-ci échoue, le système utilise ensuite **`LLMNR`**, puis **`NetBIOS Na
 
 `LLMNR` (défini par la RFC 4795) et `NBT-NS` (protocole Microsoft) sont des mécanismes de résolution de noms opérant sur le réseau local via multicast et broadcast. Contrairement au DNS, ils ne nécessitent aucune infrastructure centralisée. N'importe quel hôte du segment réseau peut y répondre.
 
->[!Note]
-Avant d’interroger le DNS, le système vérifie également le cache local et le fichier hosts.
+> Avant d’interroger le DNS, le système vérifie également le cache local et le fichier hosts.
 
 Ce qui nous donne le schéma suivant:
 
@@ -46,7 +45,9 @@ Le `sender` étant celui qui envoie la requête et le `responder` celui qui rép
 Les requêtes sont envoyées aux adresses multicasts :
 - `IPv4 224.0.0.252`
 - `IPv6 FF02::1:3` 
+
 Tout hôte sur le même segment réseau peut répondre aux requêtes `LLMNR` (via unicast), ce qui le rend vulnérable aux attaque de type `poisoning`.
+
 ## NBT-NS (NetBIOS Name Service)
 
 
