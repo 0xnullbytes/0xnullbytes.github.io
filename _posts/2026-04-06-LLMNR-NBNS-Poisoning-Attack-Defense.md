@@ -63,7 +63,7 @@ C'est précisément ce mécanisme qui constitue la faille. N'importe quelle mach
 - La machine victime lui envoie automatiquement ses informations d'authentification sous forme de hash `NTLMv1/v2`.
 - L'attaquant peut alors **craquer le hash** hors ligne ou le **relayer** vers un autre service.
 
-![](/assets/img/posts/scenario-llmnr-poisoning.svg)
+![](/assets/img/posts/poisoning-schema.png)
 ## Capture des hashes NTLM
 
 
