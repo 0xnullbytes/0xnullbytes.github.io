@@ -11,14 +11,12 @@
             "id": "b0a4c457e164ff9f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "_posts/2026-06-28-Active-Directory-BadSuccessor.md",
-                "mode": "source",
-                "source": false
+                "file": "assets/img/posts/bettersuccessor.png"
               },
-              "icon": "lucide-file",
-              "title": "2026-06-28-Active-Directory-BadSuccessor"
+              "icon": "lucide-image",
+              "title": "bettersuccessor"
             }
           }
         ]
@@ -183,11 +181,12 @@
       "bases:Créer une nouvelle base": false
     }
   },
-  "active": "b0a4c457e164ff9f",
+  "active": "b0843fd6f7e92465",
   "lastOpenFiles": [
-    "assets/img/posts/Pasted image 20260628193022.png",
-    "_posts/2026-04-06-LLMNR-NBTNS-mDNS-Poisoning-Attack-Defense.md",
+    "_posts/2026-06-28-Active-Directory-BadSuccessor.md~",
     "_posts/2026-06-28-Active-Directory-BadSuccessor.md",
+    "_posts/2026-04-06-LLMNR-NBTNS-mDNS-Poisoning-Attack-Defense.md",
+    "assets/img/posts/bettersuccessor.png",
     "assets/img/posts/Pasted image 20260628191813.png",
     "assets/img/posts/poisoning-schema.png",
     "assets/img/posts/scenario-llmnr-poisoning.svg",

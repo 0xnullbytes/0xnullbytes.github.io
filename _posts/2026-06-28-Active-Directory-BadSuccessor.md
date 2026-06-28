@@ -1,5 +1,19 @@
 
-![[Pasted image 20260628193022.png]]
+---
+layout: post
+title: Active Directory - BadSuccessor & Better Successor 
+date: 2026-06-28
+image: /assets/img/posts/bettersuccessor.png
+categories:
+  - Active Directory
+tags:
+  - privilege escalation
+  - pivoting
+  - active directory 
+  - windows
+  - english
+---
+
 # Introduction
 
 **BadSuccessor** and **BetterSuccessor** (Post Patch) are privilege escalation techniques abusing **delegated Managed Service Accounts (dMSA)**.
