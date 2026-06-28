@@ -1,5 +1,5 @@
 
-![[Pasted image 20260628191813.png]]
+![[Pasted image 20260628193022.png]]
 # Introduction
 
 **BadSuccessor** and **BetterSuccessor** (Post Patch) are privilege escalation techniques abusing **delegated Managed Service Accounts (dMSA)**.
